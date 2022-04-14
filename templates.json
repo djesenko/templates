@@ -38,7 +38,7 @@
             "categories": [
                 "Toradex images"
             ],
-            "command": "$url",
+            "command": "$URL",
             "name": "Cog",
             "description": "Run Web application container",
             "image": "torizon/cog:2",
