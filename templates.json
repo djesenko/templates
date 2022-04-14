@@ -38,7 +38,7 @@
             "categories": [
                 "Toradex images"
             ],
-            "command": "$url",
+            "command": "$COG_URL",
             "name": "Cog",
             "description": "Run Web application container",
             "image": "torizon/cog:2",
@@ -52,7 +52,7 @@
             "type": 1,
             "env": [
                 {
-                    "name": "url",
+                    "name": "COG_URL",
                     "label": "Website URL",
                     "default": "https://www.toradex.com/",
                     "description": "Enter Website URL"
