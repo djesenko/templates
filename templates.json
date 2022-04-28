@@ -52,7 +52,7 @@
             "type": 1,
             "env": [
                 {
-                    "name": "WEBSITE_URL",
+                    "name": "website_url",
                     "label": "Website URL",
                     "default": "https://www.toradex.com/",
                     "description": "Enter Website URL"
