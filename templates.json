@@ -38,6 +38,7 @@
             "categories": [
                 "Toradex images"
             ],
+            "command": "$URL",
             "name": "Cog",
             "description": "Run Web application container",
             "image": "cog",
@@ -49,6 +50,14 @@
             "restart_policy": "no",
             "title": "Cog",
             "type": 1,
+            "env": [
+                {
+                    "name": "URL",
+                    "label": "Website URL",
+                    "default": "www.google.com",
+                    "description": "Enter Website URL"
+                }
+            ],
             "volumes": [
                 {
                     "bind": "/tmp",
