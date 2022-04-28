@@ -38,46 +38,7 @@
             "categories": [
                 "Toradex images"
             ],
-            "command": "$COG_URL",
-            "name": "Cog",
-            "description": "Run Web application container",
-            "image": "torizon/cog:2",
-            "interactive": true,
-            "logo": "https://raw.githubusercontent.com/Igalia/cog/master/data/cog.png",
-            "note": "By learning how to run a web browser, you are one step closer to deploying your Graphical User Interface (GUI) based on web technologies. Check out our example about running multiple containers, where we use a web browser to display a dashboard locally on the board's display <a href=https://developer.toradex.com/knowledge-base/multi-containers-torizon-core>https://developer.toradex.com/knowledge-base/multi-containers-torizon-core</a>.<br>This container starts in <a href=https://developer.toradex.com/knowledge-base/kiosk-mode-browser-with-torizon-core>kiosk mode</a>, to close it you must use the keyboard shortcut <b>Ctrl + W</b>",
-            "platform": "linux",
-            "privileged": true,
-            "restart_policy": "no",
-            "title": "Cog",
-            "type": 1,
-            "env": [
-                {
-                    "name": "COG_URL",
-                    "label": "Website URL",
-                    "default": "https://www.toradex.com/",
-                    "description": "Enter Website URL"
-                }
-            ],
-            "volumes": [
-                {
-                    "bind": "/tmp",
-                    "container": "/tmp"
-                },
-                {
-                    "bind": "/var/run/dbus",
-                    "container": "/var/run/dbus"
-                },
-                {
-                    "bind": "/dev/dri",
-                    "container": "/dev/dri"
-                }
-            ]
-        },
-        {
-            "categories": [
-                "Toradex images"
-            ],
-            "command": "/usr/lib/arm-linux-gnueabihf/qt5/examples/opengl/cube/cube",
+            "command": "/usr/lib/arm-linux-gnueabihf/qt5/examples/quick/quickwidgets/quickwidget/quickwidget",
             "name": "qt5-app",
             "description": "Run Qt5 demo application",
             "image": "torizon/qt5-wayland-examples:2",
@@ -85,6 +46,12 @@
             "logo": "https://sdtimes.com/wp-content/uploads/2016/09/0927.sdt-qt.png",
             "note": "This simple 3D demonstration using Qt5 is ideal to get you started into developing Qt apps with Torizon. Start with <a href=https://developer.toradex.com/knowledge-base/qt-debian-container-for-torizon>https://developer.toradex.com/knowledge-base/qt-debian-container-for-torizon</a>, then learn how to develop your application on <a href=https://developer.toradex.com/knowledge-base/qt-c-application-development-using-visual-studio-code-and-torizon>https://developer.toradex.com/knowledge-base/qt-c-application-development-using-visual-studio-code-and-torizon</a> and <a href=https://developer.toradex.com/knowledge-base/torizoncore-qt-python>https://developer.toradex.com/knowledge-base/torizoncore-qt-python</a>.",
             "platform": "linux",
+            "env": [
+                {
+                  "name": "QMLSCENE_DEVICE",
+                  "default": "softwarecontext"
+                }
+              ],
             "privileged": true,
             "restart_policy": "no",
             "title": "Qt5 application",
@@ -97,32 +64,6 @@
                 {
                     "bind": "/dev/dri",
                     "container": "/dev/dri"
-                }
-            ]
-        },
-        {
-            "categories": [
-                "Partner images"
-            ],
-            "name": "crank",
-            "description": "Run Crank container",
-            "image": "cranksoftware/torizon_imx6:7_1",
-            "interactive": true,
-            "logo": "https://docs.toradex.com/106842-crank-logo-table.png",
-            "note": "Creating Graphical User Interfaces is made easy with Crank Storyboard. Learn how to deploy your own application with this Partner Demo Container on <a href=https://developer.toradex.com/knowledge-base/partner-demo-container-crank-storyboard>https://developer.toradex.com/knowledge-base/partner-demo-container-crank-storyboard</a>.<br>It is recommended to run this demo with an HDMI display, since it has a fixed resolution of 1280x720.",
-            "platform": "linux",
-            "privileged": true,
-            "restart_policy": "no",
-            "title": "Crank",
-            "type": 1,
-            "volumes": [
-                {
-                    "bind": "/dev",
-                    "container": "/dev"
-                },
-                {
-                    "bind": "/tmp",
-                    "container": "/tmp"
                 }
             ]
         },
@@ -143,6 +84,33 @@
             "restart_policy": "no",
             "title": "Node-RED",
             "type": 1
+        },
+        {
+            "categories": [
+                "Partner images"
+            ],
+            "command": "bash /app/start.sh",
+            "name": "totalcross",
+            "description": "Run TotalCross container",
+            "image": "totalcross/torizon-demo:1.0.1",
+            "interactive": true,
+            "logo": "https://avatars1.githubusercontent.com/u/10406833",
+            "note": "TotalCross is an Open Source SDK for building beautiful User Interfaces with a low footprint and an easy-to-use GUI creator. This demonstration showcases how to deploy a TotalCross application into a Torizon container. Learn more by visiting our article <a href=https://developer.toradex.com/knowledge-base/partner-demo-container-totalcross>https://developer.toradex.com/knowledge-base/partner-demo-container-totalcross</a>.",
+            "platform": "linux",
+            "privileged": true,
+            "restart_policy": "no",
+            "title": "TotalCross",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/dev/dri",
+                    "container": "/dev/dri"
+                },
+                {
+                    "bind": "/tmp",
+                    "container": "/tmp"
+                }
+            ]
         }
     ]
 }
